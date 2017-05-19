@@ -1,6 +1,9 @@
 package com.example.tony.firstapp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created by Tony on 5/18/2017.
@@ -9,9 +12,9 @@ import java.util.ArrayList;
 public class G_ControlClient {
     private static final String api_key = "9482fbe6126e13d94a463153c62cd857";
     private static final String api_base = "http://api.openweathermap.org/data/2.5/weather?";
-    private static ArrayList<G_DelegateClient> zip_controllers;
+    private static Stack<G_DelegateClient> zip_controllers;
 
-    public ArrayList<G_DelegateClient> delegates() {
+    public Stack<G_DelegateClient> delegates() {
         return zip_controllers;
     }
 
@@ -20,6 +23,7 @@ public class G_ControlClient {
     }
 
     public void addZipDelegate(int zipcode) {
+        Log.i("INFO","fuck");
         G_DelegateClient newclient = new G_DelegateClient(zipcode);
         newclient.args().put("appid",api_key);
         zip_controllers.add(newclient);
@@ -34,6 +38,6 @@ public class G_ControlClient {
     }
 
     private G_ControlClient() {
-        zip_controllers = new ArrayList<G_DelegateClient>();
+        zip_controllers = new Stack<>();
     }
 }

@@ -16,7 +16,7 @@ public class G_DelegateClient {
 
     public G_DelegateClient(int zip) {
         zip_code = zip;
-        argument_map = new HashMap<String, String>();
+        argument_map = new HashMap<>();
         argument_map.put("zip",String.valueOf(zip_code)+",us");
     }
 }

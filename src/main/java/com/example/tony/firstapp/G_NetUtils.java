@@ -29,12 +29,10 @@ public class G_NetUtils {
                 }
                 bufferedReader.close();
                 return stringBuilder.toString();
-            }
-            finally{
+            } finally {
                 urlConnection.disconnect();
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             Log.e("ERROR", e.getMessage(), e);
             return null;
         }
@@ -52,12 +50,7 @@ public class G_NetUtils {
             String key = (String) pair.getKey();
             String value = (String) pair.getValue();
 
-            if (key.equalsIgnoreCase("zip"))
-                endpoint_string += "&";
-
-            endpoint_string += (key + "=" + value);
-
-            it.remove();
+            endpoint_string += ("&" + key + "=" + value);
         }
         return endpoint_string;
     }
